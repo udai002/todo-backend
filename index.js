@@ -5,10 +5,10 @@ app = express()
 
 console.log(dotenv.parsed.PORT)
 
-app.use(express.Router())
+app.use(express.json())
 
 app.get('/' , (req , res)=>{
-    res.send('Hello this is a express api')
+    res.send({message:"Welcome to express app"})
 })
 
 app.listen(Port , ()=>{
