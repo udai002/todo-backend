@@ -6,10 +6,15 @@ app = express()
 
 console.log(dotenv.parsed.PORT)
 
-mongoose
+try{
+    mongoose
     .connect('mongodb+srv://karumuriudaisai002:udai123@cluster0.4o0q2x6.mongodb.net/')
     .then(() => console.log('db connected'))
     .catch(err => console.log(err))
+}catch(e){
+    console.log(e)
+}
+
 
 app.use(express.json())
 
