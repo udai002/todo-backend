@@ -1,6 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv').config()
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 const Port = dotenv.parsed.PORT || 3000
 app = express()
 
