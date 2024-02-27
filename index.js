@@ -1,5 +1,6 @@
 const express = require('express')
-const dotenv = require('dotenv').config()
+const { default: mongoose } = require('mongoose')
+const dotenv = require('dotenv').config() 
 // const mongoose = require('mongoose')
 const Port = dotenv.parsed.PORT || 3000
 app = express()
@@ -14,6 +15,18 @@ console.log(dotenv.parsed.PORT)
 // }catch(e){
 //     console.log(e)
 // }
+
+mongoose.set("strictQuery" , false)
+const connectMongo = async ()=>{
+    try{
+        const conn = await mongoose.connect('mongodb+srv://karumuriudaisai002:udai123@cluster0.4o0q2x6.mongodb.net/')
+        console.log("mongodb connected...." , conn)
+    }catch(e){
+        console.log(e)
+    }
+}
+
+connectMongo()
 
 
 app.use(express.json())
