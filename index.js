@@ -5,17 +5,7 @@ const dotenv = require('dotenv').config()
 const Port = dotenv.parsed.PORT || 3000
 app = express()
 
-console.log(dotenv.parsed.PORT)
-
-// try{
-//     mongoose
-//     .connect('mongodb+srv://karumuriudaisai002:udai123@cluster0.4o0q2x6.mongodb.net/')
-//     .then(() => console.log('db connected'))
-//     .catch(err => console.log(err))
-// }catch(e){
-//     console.log(e)
-// }
-
+//connecting to mongodb altas using mongoose
 mongoose.set("strictQuery" , false)
 const connectMongo = async ()=>{
     try{
@@ -28,15 +18,16 @@ const connectMongo = async ()=>{
 
 connectMongo()
 
-
 app.use(express.json())
 
 app.get('/' , (req , res)=>{
     res.send({message:"Welcome to express app"})
 })
 
+// ********* write your code here *********
+
 app.listen(Port , ()=>{
-    console.log('app is listening...')
+    console.log(`app is listening... at http://localhost:${Port}`)
 })
 
 module.exports = app
